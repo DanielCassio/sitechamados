@@ -1,0 +1,16 @@
+CREATE DATABASE db_site;
+
+CREATE TABLE `chamados` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nucleo` double NOT NULL,
+  `tel` int NOT NULL,
+  `setor`varchar(45),
+  `desc` varchar(100),
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `chamados` (`id`, `nome`, `email`, `nucleo`, `tel`, `setor`, `desc`) VALUES
+(1, 'Daniel', 'danielteste@gmail.com', 'CTI', '6599999-9999', 'Assessoria Aleatória', 'teste');
+COMMIT;
