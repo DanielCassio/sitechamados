@@ -1,0 +1,39 @@
+create database db_site ;
+use db_site;
+
+
+create table usuario (
+idusuario bigint not null auto_increment primary key,
+login varchar (20) not null,
+senha varchar (50) not null
+);
+
+insert into usuario (login, senha) values ('daniel', '123'); 
+
+select * from usuario;
+
+create table chamados (
+id_chamado int auto_increment not null primary key,
+email varchar(40)  not null,
+nome varchar(40) not null,
+nucleo varchar(40) not null,
+setor varchar(40) not null,
+tel int (10) not null,
+descr varchar (100));
+
+create table atendimento (
+idatendimento int auto_increment not null primary key,
+nome_atend varchar(45),
+tipo_chamado varchar(45),
+dia_atendimento date,
+FK_chamado_idchamado int,
+FK_concluidos_idconcluidos int,
+foreign key (FK_chamado_id_chamado) references chamado (id_chamado),
+foreign key (FK_concluidos_idconcluidos) references concluidos (id_concluidos) 
+);
+
+create table concluidos (
+idconcluidos int auto_increment not null primary key,
+FK_chamado_idchamado int,
+foreign key (FK_chamado_id_chamado) references chamado (id_chamado) 
+);
